@@ -26,5 +26,5 @@ export default function Page() {
   useEffect(() => {
     registerAPI();
   }, []);
-  return <div>Page</div>;
+  return <div>REGISTER</div>;
 }
