@@ -3,7 +3,10 @@ import React from "react";
 import { AspectRatio } from "../ui/aspect-ratio";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function CardAnime({ data }: any) {
+  const isClient = typeof window !== "undefined";
+
   return (
     <div className="bg-indigo-600 hover:bg-indigo-700 flex flex-col shadow-md shadow-black rounded-md transition-all duration-300 text-white">
       <Link href={`/${data.mal_id}`}>
@@ -21,7 +24,7 @@ export default function CardAnime({ data }: any) {
       <Link href={`/${data.mal_id}`} className="p-5">
         <h2 className="font-semibold">{data.title}</h2>
 
-        {window.innerWidth < 768 ? (
+        {isClient && window.innerWidth < 768 ? (
           <p className="font-light text-sm">
             {data.synopsis.substring(0, 50)}...
           </p>
