@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { AspectRatio } from "../ui/aspect-ratio";
 import Image from "next/image";
@@ -19,7 +20,16 @@ export default function CardAnime({ data }: any) {
       </Link>
       <Link href={`/${data.mal_id}`} className="p-5">
         <h2 className="font-semibold">{data.title}</h2>
-        <p className="font-light text-sm">{data.synopsis.substring(0, 150)}...</p>
+
+        {window.innerWidth < 768 ? (
+          <p className="font-light text-sm">
+            {data.synopsis.substring(0, 50)}...
+          </p>
+        ) : (
+          <p className="font-light text-sm">
+            {data.synopsis.substring(0, 150)}...
+          </p>
+        )}
       </Link>
       <div className="p-5 mt-auto">ACTION</div>
     </div>
